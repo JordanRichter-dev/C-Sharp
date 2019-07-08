@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarInsuranceProject.Models;
+using CarInsuranceProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,22 @@ namespace CarInsuranceProject.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            return View();
+            using (CarInsuranceEntities db = new CarInsuranceEntities())
+            {
+                var signups = db.SignUps.ToList();
+                var signupVms = new List<SignUpVm>();
+                foreach (var signup in signups)
+                {
+                    var signupVm = new SignUpVm();
+                    signupVm.Id = signup.Id;
+                    signupVm.FirstName = signup.FirstName;
+                    signupVm.LastName = signup.LastName;
+                    signupVm.EmailAddress = signup.EmailAddress;
+                    signupVms.Add(signupVm);
+                }
+                return View(signupVms);
+            }
         }
+        
     }
 }

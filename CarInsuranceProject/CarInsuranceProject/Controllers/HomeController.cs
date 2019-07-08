@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarInsuranceProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,18 +14,42 @@ namespace CarInsuranceProject.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult SignUp(string firstName, string lastName, string emailAddress,
+            DateTime birthDay, int carYear, string carMake, string carModel, 
+            bool dui, int tickets, bool fullCoverage, bool liabilityOnly)
         {
-            ViewBag.Message = "Your application description page.";
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress))
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+            else
+            {
+                using (CarInsuranceEntities db = new CarInsuranceEntities())
+                {
+                    var signup = new SignUp();
+                    signup.FirstName = firstName;
+                    signup.LastName = lastName;
+                    signup.EmailAddress = emailAddress;
+                    signup.DOB = birthDay;
+                    signup.CarYear = carYear;
+                    signup.CarMake = carMake;
+                    signup.CarModel = carModel;
+                    signup.DUI = dui;
+                    signup.Tickets = tickets;
+                    signup.FullCoverage = fullCoverage;
+                    signup.LiabilityOnly = liabilityOnly;
+                    
 
-            return View();
-        }
+                    db.SignUps.Add(signup);
+                    db.SaveChanges();
+                }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
 
-            return View();
+
+
+                return View("Success");
+            }
         }
     }
 }

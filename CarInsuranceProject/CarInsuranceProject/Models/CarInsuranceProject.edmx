@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CarInsuranceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="CarInsuranceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SignUps">
           <Key>
             <PropertyRef Name="Id" />
@@ -13,20 +13,20 @@
           <Property Name="FirstName" Type="varchar" MaxLength="20" />
           <Property Name="LastName" Type="varchar" MaxLength="20" />
           <Property Name="EmailAddress" Type="varchar" MaxLength="100" />
-          <Property Name="DOB" Type="datetime" />
-          <Property Name="CarYear" Type="datetime" />
           <Property Name="CarMake" Type="varchar" MaxLength="50" />
           <Property Name="CarModel" Type="varchar" MaxLength="50" />
           <Property Name="DUI" Type="bit" />
           <Property Name="Tickets" Type="int" />
           <Property Name="FullCoverage" Type="bit" />
           <Property Name="LiabilityOnly" Type="bit" />
+          <Property Name="Quote" Type="money" />
+          <Property Name="DOB" Type="date" />
+          <Property Name="CarYear" Type="int" />
         </EntityType>
         <EntityContainer Name="CarInsuranceModelStoreContainer">
           <EntitySet Name="SignUps" EntityType="Self.SignUps" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CarInsuranceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -38,14 +38,15 @@
           <Property Name="FirstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="DOB" Type="DateTime" Precision="3" />
-          <Property Name="CarYear" Type="DateTime" Precision="3" />
+          <Property Name="DOB" Type="DateTime" Precision="0" />
+          <Property Name="CarYear" Type="DateTime" />
           <Property Name="CarMake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DUI" Type="Boolean" />
           <Property Name="Tickets" Type="Int32" />
           <Property Name="FullCoverage" Type="Boolean" />
           <Property Name="LiabilityOnly" Type="Boolean" />
+          <Property Name="Quote" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityContainer Name="CarInsuranceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SignUps" EntityType="Self.SignUp" />
@@ -59,6 +60,7 @@
           <EntitySetMapping Name="SignUps">
             <EntityTypeMapping TypeName="CarInsuranceModel.SignUp">
               <MappingFragment StoreEntitySet="SignUps">
+                <ScalarProperty Name="Quote" ColumnName="Quote" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
