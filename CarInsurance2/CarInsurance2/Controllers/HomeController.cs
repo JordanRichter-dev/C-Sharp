@@ -26,6 +26,16 @@ namespace CarInsurance2.Controllers
             else
             {
                 //code for calculating a quote
+                decimal price = 50;
+                int age = CalculateAge(dob);
+                if (age < 26)
+                {
+                    price += 25;
+                }
+
+
+
+
 
                 using (CarInsuranceEntities db = new CarInsuranceEntities())
                 {
@@ -52,6 +62,17 @@ namespace CarInsurance2.Controllers
 
                 return View("DisplayQuote");
             }
+        }
+        // <summary>  
+        // For calculating age  
+
+        public int CalculateAge(DateTime dob)
+        {
+            int age = 0;
+            age = DateTime.Now.Year - dob.Year;
+            if (DateTime.Now.DayOfYear < dob.DayOfYear)
+                age = age - 1;
+            return age;
         }
     }
 }
