@@ -19,7 +19,7 @@ namespace CarInsuranceProject.Models
         public string LastName { get; set; }
         public string EmailAddress { get; set; }
         public Nullable<System.DateTime> DOB { get; set; }
-        public int CarYear { get; set; }
+        public Nullable<System.DateTime> CarYear { get; set; }
         public string CarMake { get; set; }
         public string CarModel { get; set; }
         public Nullable<bool> DUI { get; set; }
