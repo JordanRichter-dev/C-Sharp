@@ -25,7 +25,7 @@ namespace CarInsuranceProject.Controllers
             }
             else
             {
-                using (CarInsuranceEntities db = new CarInsuranceEntities())
+                using (CarInsuranceEntities1 db = new CarInsuranceEntities1())
                 {
                     var signup = new SignUp();
                     signup.FirstName = firstName;
@@ -48,7 +48,7 @@ namespace CarInsuranceProject.Controllers
 
 
 
-                return View("Success");
+                return View("DisplayQuote");
             }
         }
     }

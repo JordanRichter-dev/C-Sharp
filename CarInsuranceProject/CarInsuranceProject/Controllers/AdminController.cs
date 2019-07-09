@@ -1,9 +1,7 @@
-﻿using CarInsuranceProject.Models;
-using CarInsuranceProject.ViewModels;
+﻿using CarInsuranceProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CarInsuranceProject.Controllers
@@ -29,6 +27,16 @@ namespace CarInsuranceProject.Controllers
                 return View(signupVms);
             }
         }
-        
+        public ActionResult Unsubscribe(int Id)
+        {
+            using (CarInsuranceEntities db = new CarInsuranceEntities())
+            {
+                var signup = db.SignUps.Find(Id);
+                signup.Removed = DateTime.Now;
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
