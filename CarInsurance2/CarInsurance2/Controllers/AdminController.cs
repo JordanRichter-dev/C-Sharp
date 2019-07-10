@@ -24,8 +24,7 @@ namespace CarInsurance2.Controllers
                     signupVm.FirstName = signup.FirstName;
                     signupVm.LastName = signup.LastName;
                     signupVm.EmailAddress = signup.EmailAddress;
-                    //signup.Quote = signup.Quote;
-                    
+                    signup.Quote = signup.Quote;
                     signupVms.Add(signupVm);
                 }
                 return View(signupVms);
@@ -36,7 +35,6 @@ namespace CarInsurance2.Controllers
             using (CarInsuranceEntities db = new CarInsuranceEntities())
             {
                 var signup = db.SignUps.Find(Id);
-                
                 db.SaveChanges();
             }
 

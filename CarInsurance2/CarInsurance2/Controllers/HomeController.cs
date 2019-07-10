@@ -26,16 +26,50 @@ namespace CarInsurance2.Controllers
             else
             {
                 //code for calculating a quote
-                decimal price = 50;
+                decimal quote = 50;
                 int age = CalculateAge(dob);
-                if (age < 26)
+
+                if (age <= 25 || age >= 100)
                 {
-                    price += 25;
+                    quote += 25;
+                }
+                if (age <= 18)
+                {
+                    quote += 100;
                 }
 
+                if (carYear < 2000 || carYear > 2015)
+                {
+                    quote += 25;
+                }
 
+                if (carMake == "Porsche")
+                {
+                    quote += 25;
+                }
+                if (carMake == "Porsche" && carModel == "911 Carrera")
+                {
+                    quote += 25;
+                }
 
+                if (tickets >= 1)  // not correct yet
+                {
+                    quote += 10;
+                }
 
+                if (dui == true)
+                {
+                    Decimal duiMarkup = 1.25m;
+                    quote *= duiMarkup;
+                }
+
+                if (fullCoverage == true)
+                {
+                    Decimal fullCovMarkup = 1.5m;
+                    quote *= fullCovMarkup;
+                }
+
+                
 
                 using (CarInsuranceEntities db = new CarInsuranceEntities())
                 {
@@ -50,7 +84,7 @@ namespace CarInsurance2.Controllers
                     signup.DUI = dui;
                     signup.Tickets = tickets;
                     signup.FullCoverage = fullCoverage;
-                    //signup.Quote = quote;
+                    signup.Quote = quote;
 
 
                     db.SignUps.Add(signup);
@@ -74,5 +108,15 @@ namespace CarInsurance2.Controllers
                 age = age - 1;
             return age;
         }
+
+
+        //public ActionResult DisplayQuote(decimal quote)
+        //{
+        //    string price = quote.ToString("0.00");
+        //    ViewBag.Message = ("Your insurance quote is {0} per month.", price);
+        //    return View();
+        //}
+
+
     }
 }
