@@ -20,7 +20,7 @@
           <Property Name="DUI" Type="bit" />
           <Property Name="Tickets" Type="int" />
           <Property Name="FullCoverage" Type="bit" />
-          <Property Name="Quote" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="Quote" Type="decimal" Precision="9" Scale="2" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CarInsuranceModelStoreContainer">
           <EntitySet Name="SignUps" EntityType="Self.SignUps" Schema="dbo" store:Type="Tables" />
@@ -44,7 +44,7 @@
           <Property Name="DUI" Type="Boolean" />
           <Property Name="Tickets" Type="Int32" />
           <Property Name="FullCoverage" Type="Boolean" />
-          <Property Name="Quote" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="Quote" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CarInsuranceEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="SignUps" EntityType="Self.SignUp" />

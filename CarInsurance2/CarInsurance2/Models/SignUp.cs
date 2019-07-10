@@ -25,6 +25,6 @@ namespace CarInsurance2.Models
         public Nullable<bool> DUI { get; set; }
         public Nullable<int> Tickets { get; set; }
         public Nullable<bool> FullCoverage { get; set; }
-        public Nullable<decimal> Quote { get; set; }
+        public decimal Quote { get; set; }
     }
 }

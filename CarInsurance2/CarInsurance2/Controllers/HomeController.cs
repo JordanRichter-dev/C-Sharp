@@ -20,7 +20,9 @@ namespace CarInsurance2.Controllers
             bool dui, int tickets, bool fullCoverage)
         {
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress) 
-                || string.IsNullOrEmpty(carMake) || string.IsNullOrEmpty(carModel))
+                || string.IsNullOrEmpty(carMake) || string.IsNullOrEmpty(carModel) || string.IsNullOrEmpty(tickets.ToString())
+                || string.IsNullOrEmpty(dob.ToString()) || string.IsNullOrEmpty(carYear.ToString())
+                || string.IsNullOrEmpty(fullCoverage.ToString()) || string.IsNullOrEmpty(dui.ToString()))
             {
                 return View("~/Views/Shared/Error.cshtml");
             }
@@ -94,7 +96,7 @@ namespace CarInsurance2.Controllers
 
 
 
-
+                ViewBag.Quote = quote;
                 return View("DisplayQuote");
             }
         }

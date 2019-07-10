@@ -15,7 +15,7 @@
     <Property Name="DUI" Type="bit" />
     <Property Name="Tickets" Type="int" />
     <Property Name="FullCoverage" Type="bit" />
-    <Property Name="Quote" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="Quote" Type="decimal" Precision="9" Scale="2" Nullable="false" />
   </EntityType>
   <EntityContainer Name="CarInsuranceModelStoreContainer">
     <EntitySet Name="SignUps" EntityType="Self.SignUps" Schema="dbo" store:Type="Tables" />
