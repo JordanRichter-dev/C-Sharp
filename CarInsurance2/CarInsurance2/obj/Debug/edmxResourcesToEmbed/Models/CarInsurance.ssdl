@@ -8,14 +8,14 @@
     <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="DOB" Type="date" Nullable="false" />
-    <Property Name="CarYear" Type="int" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="CarYear" Type="int" />
     <Property Name="CarMake" Type="varchar" MaxLength="50" />
-    <Property Name="CarModel" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="DUI" Type="bit" Nullable="false" />
-    <Property Name="Tickets" Type="int" Nullable="false" />
-    <Property Name="FullCoverage" Type="bit" Nullable="false" />
-    <Property Name="Quote" Type="money" />
+    <Property Name="CarModel" Type="varchar" MaxLength="50" />
+    <Property Name="DUI" Type="bit" />
+    <Property Name="Tickets" Type="int" />
+    <Property Name="FullCoverage" Type="bit" />
+    <Property Name="Quote" Type="decimal" Precision="9" Scale="2" />
   </EntityType>
   <EntityContainer Name="CarInsuranceModelStoreContainer">
     <EntitySet Name="SignUps" EntityType="Self.SignUps" Schema="dbo" store:Type="Tables" />

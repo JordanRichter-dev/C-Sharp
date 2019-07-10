@@ -8,14 +8,14 @@
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="EmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="CarYear" Type="Int32" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="CarYear" Type="Int32" />
     <Property Name="CarMake" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="DUI" Type="Boolean" Nullable="false" />
-    <Property Name="Tickets" Type="Int32" Nullable="false" />
-    <Property Name="FullCoverage" Type="Boolean" Nullable="false" />
-    <Property Name="Quote" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="CarModel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DUI" Type="Boolean" />
+    <Property Name="Tickets" Type="Int32" />
+    <Property Name="FullCoverage" Type="Boolean" />
+    <Property Name="Quote" Type="Decimal" Precision="9" Scale="2" />
   </EntityType>
   <EntityContainer Name="CarInsuranceEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="SignUps" EntityType="Self.SignUp" />

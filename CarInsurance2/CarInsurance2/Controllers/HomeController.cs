@@ -19,7 +19,8 @@ namespace CarInsurance2.Controllers
             DateTime dob, int carYear, string carMake, string carModel,
             bool dui, int tickets, bool fullCoverage)
         {
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress))
+            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress) 
+                || string.IsNullOrEmpty(carMake) || string.IsNullOrEmpty(carModel))
             {
                 return View("~/Views/Shared/Error.cshtml");
             }
@@ -52,9 +53,9 @@ namespace CarInsurance2.Controllers
                     quote += 25;
                 }
 
-                if (tickets >= 1)  // not correct yet
+                if (tickets >= 1)
                 {
-                    quote += 10;
+                    quote += (10 * tickets);
                 }
 
                 if (dui == true)
@@ -97,7 +98,8 @@ namespace CarInsurance2.Controllers
                 return View("DisplayQuote");
             }
         }
-        // <summary>  
+     
+
         // For calculating age  
 
         public int CalculateAge(DateTime dob)
@@ -110,12 +112,6 @@ namespace CarInsurance2.Controllers
         }
 
 
-        //public ActionResult DisplayQuote(decimal quote)
-        //{
-        //    string price = quote.ToString("0.00");
-        //    ViewBag.Message = ("Your insurance quote is {0} per month.", price);
-        //    return View();
-        //}
 
 
     }
