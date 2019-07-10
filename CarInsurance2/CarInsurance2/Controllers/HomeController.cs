@@ -95,7 +95,7 @@ namespace CarInsurance2.Controllers
                 }
 
 
-
+                quote = Math.Round(quote, 2);
                 ViewBag.Quote = quote;
                 return View("DisplayQuote");
             }
