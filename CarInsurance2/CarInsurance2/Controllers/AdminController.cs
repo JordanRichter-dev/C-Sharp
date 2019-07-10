@@ -24,7 +24,7 @@ namespace CarInsurance2.Controllers
                     signupVm.FirstName = signup.FirstName;
                     signupVm.LastName = signup.LastName;
                     signupVm.EmailAddress = signup.EmailAddress;
-                    signup.Quote = signup.Quote;
+                    signupVm.Quote = signup.Quote;
                     signupVms.Add(signupVm);
                 }
                 return View(signupVms);
