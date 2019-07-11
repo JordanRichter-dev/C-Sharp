@@ -16,17 +16,17 @@ namespace CarInsurance2.Controllers
 
         [HttpPost]
         public ActionResult SignUp(string firstName, string lastName, string emailAddress,
-            DateTime dob, int carYear, string carMake, string carModel,
-            bool dui, int tickets, bool fullCoverage)
+            DateTime dob, int? carYear, string carMake, string carModel,
+            int? tickets, bool? dui, bool? fullCoverage)
         {
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(emailAddress) 
-                || string.IsNullOrEmpty(carMake) || string.IsNullOrEmpty(carModel) || string.IsNullOrEmpty(tickets.ToString())
-                || string.IsNullOrEmpty(dob.ToString()) || string.IsNullOrEmpty(carYear.ToString())
-                || string.IsNullOrEmpty(fullCoverage.ToString()) || string.IsNullOrEmpty(dui.ToString()))
+                || string.IsNullOrEmpty(carMake) || string.IsNullOrEmpty(carModel) || tickets.HasValue == false || carYear.HasValue == false 
+                || dui.HasValue == false || fullCoverage.HasValue == false)
             {
                 return View("~/Views/Shared/Error.cshtml");
             }
-            else
+
+            else 
             {
                 //code for calculating a quote
                 decimal quote = 50;
@@ -57,7 +57,7 @@ namespace CarInsurance2.Controllers
 
                 if (tickets >= 1)
                 {
-                    quote += (10 * tickets);
+                    quote += (decimal)tickets * 10;
                 }
 
                 if (dui == true)
@@ -100,7 +100,9 @@ namespace CarInsurance2.Controllers
                 return View("DisplayQuote");
             }
         }
-     
+
+        
+
 
         // For calculating age  
 
@@ -109,7 +111,7 @@ namespace CarInsurance2.Controllers
             int age = 0;
             age = DateTime.Now.Year - dob.Year;
             if (DateTime.Now.DayOfYear < dob.DayOfYear)
-                age = age - 1;
+                age -= 1;
             return age;
         }
 
