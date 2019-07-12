@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CFApp4", "CFApp4\CFApp4.csproj", "{DC1B56E7-2E46-4C10-BDB6-232243D7D167}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC1B56E7-2E46-4C10-BDB6-232243D7D167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC1B56E7-2E46-4C10-BDB6-232243D7D167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC1B56E7-2E46-4C10-BDB6-232243D7D167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC1B56E7-2E46-4C10-BDB6-232243D7D167}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4671169D-5CF8-4A12-AEDB-C2676A8F23D4}
+	EndGlobalSection
+EndGlobal
