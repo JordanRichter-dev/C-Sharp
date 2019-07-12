@@ -28,9 +28,12 @@ namespace CFApp4.Models
         {
         }
         public DbSet<Admin> Admins { get; set; }
+       
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<CFApp4.Models.Employee> Employees { get; set; }
     }
 }
