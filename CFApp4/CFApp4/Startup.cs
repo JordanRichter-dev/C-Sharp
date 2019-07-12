@@ -30,17 +30,19 @@ namespace CFApp4
             {
 
                 //create Admin role:
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
 
                 //create Admin superuser 
 
                 var user = new ApplicationUser();
-                user.UserName = "jordan";
+                user.UserName = "jrcodeschool@gmail.com";
                 user.Email = "jrcodeschool@gmail.com";
-
-                string userPWD = "A@Z200711";
+                user.EmailConfirmed = true;
+                user.FirstName = "Jordan";
+                user.LastName = "Richter";
+                string userPWD = "Password1234!";
 
                 var chkUser = UserManager.Create(user, userPWD);
 

@@ -105,3 +105,4 @@ C:\GitRepositories\Bootcamp-C-Sharp-Coding-Projects\CFApp4\CFApp4\obj\Debug\CFAp
 C:\GitRepositories\Bootcamp-C-Sharp-Coding-Projects\CFApp4\CFApp4\obj\Debug\CFApp4.pdb
 C:\GitRepositories\Bootcamp-C-Sharp-Coding-Projects\CFApp4\CFApp4\obj\Debug\CFApp4.Migrations.Admin.resources
 C:\GitRepositories\Bootcamp-C-Sharp-Coding-Projects\CFApp4\CFApp4\obj\Debug\CFApp4.csproj.GenerateResource.cache
+C:\GitRepositories\Bootcamp-C-Sharp-Coding-Projects\CFApp4\CFApp4\obj\Debug\CFApp4.Migrations.addName.resources
