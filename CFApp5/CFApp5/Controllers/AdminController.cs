@@ -10,6 +10,7 @@ using CFApp5.Models;
 
 namespace CFApp5.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AdminController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
